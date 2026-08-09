@@ -793,3 +793,22 @@ div.notice p:last-of-type {
     white-space: pre-wrap;
   }
 }
+
+navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  background-color: var(--social-bg);
+}
+
+navbar img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+navbar-buttons.a { 
+  display:inline-block;
+  gap: 0.5rem;
+  height:min-content;
+}
