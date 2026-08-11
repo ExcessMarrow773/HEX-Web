@@ -6,11 +6,15 @@
     {% block extra_head %}{% endblock extra_head %}
     <title>{% block title %}HEX{% endblock title %}</title>
 </head>
-<navbar>
-    <h1>TEST</h1>
-</navbar>
 
 <body>
+    <header>
+        {% block navbar %}
+            <h1 class="title">HEX</h1>
+        {% endblock navbar %}
+    </header>
+
     {% block body %}{% endblock body %}
+
 </body>
 </html>

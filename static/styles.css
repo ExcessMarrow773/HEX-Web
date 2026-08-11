@@ -28,6 +28,7 @@
   --bg: #fff;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
+  --navbar-bg: #f3f2f6;
   --accent: #aa3bff;
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
@@ -48,6 +49,7 @@
     --accent-bg: #2b2b2b;
     --text: #dcdcdc;
     --text-light: #ababab;
+    --navbar-bg: var(--bg);
     --accent: #ffb300;
     --accent-hover: #ffe099;
     --accent-text: var(--bg);
@@ -90,7 +92,7 @@ body {
   font-size: 1.15rem;
   line-height: 1.5;
   display: grid;
-  grid-template-columns: 0.04fr min(45rem, 90%) 0.04fr;
+  grid-template-columns: 0.04fr 1fr 0.04fr;
   margin: 0;
 }
 body > * {
@@ -794,21 +796,7 @@ div.notice p:last-of-type {
   }
 }
 
-navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 2rem;
-  background-color: var(--social-bg);
-}
-
-navbar img {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-navbar-buttons.a { 
-  display:inline-block;
-  gap: 0.5rem;
-  height:min-content;
+header .title {
+  text-shadow: 0px 0px 30px var(--text);
+  float: inline-start;
 }
