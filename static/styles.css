@@ -798,5 +798,9 @@ div.notice p:last-of-type {
 
 header .title {
   text-shadow: 0px 0px 30px var(--text);
+  /* float: inline-start; */
+}
+
+header .logo {
   float: inline-start;
 }
