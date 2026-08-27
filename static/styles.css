@@ -9,8 +9,8 @@
   --standard-border-radius: 5px;
   --border-width: 1px;
 
-  --bg: #212121;
-  --accent-bg: #2b2b2b;
+  --bg: #262238;
+  --accent-bg: #191624;
   --text: #dcdcdc;
   --text-light: #ababab;
   --navbar-bg: var(--bg);
@@ -765,10 +765,20 @@ div.notice p:last-of-type {
 }
 
 header .title {
+  /* margin-top: 37px; */
   text-shadow: 0px 0px 30px var(--text);
-  /* float: inline-start; */
+  float: inline-start;
 }
 
 header .logo {
   float: inline-start;
+}
+
+/* header .links {
+
+} */
+
+header .links a {
+  margin-left: 10px;
+  margin-right: 10px;
 }
