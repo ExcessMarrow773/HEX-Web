@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 
+{% block extra_navbar %}
+<br>
+<div class="links">
+<a href="">Our Mission</a>
+<a href="">Meet the heads</a>
+<a href="">Staff links</a>
+</div>
+
+<br>
+{% endblock extra_navbar %}
+
 {% block body %}
+{% if not debug%}I'm in debug mode!{% endif%}
     <h1>Testing!</h1>
 {% endblock body %}

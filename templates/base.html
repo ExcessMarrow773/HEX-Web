@@ -10,11 +10,13 @@
 <body>
     <header>
         {% block navbar %}
-            <div>
+        <div>
             <img class="logo" src="{% static "images/Hex_outline.svg" %}" width=100>
             <h1 class="title">HEX</h1>
         </div>
         {% endblock navbar %}
+        {% block extra_navbar %}
+        {% endblock extra_navbar %}
     </header>
 
     <main>
