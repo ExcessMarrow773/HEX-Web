@@ -15,6 +15,25 @@
             <h1 class="title">HEX</h1>
         </div>
         {% endblock navbar %}
+
+        {% block no_topbar %}
+            <br>
+            <div class="links">
+                <form method="post" action="{% url 'accounts:logout' %}">
+                    <a href="">Our Mission</a>
+                    <a href="{% url 'app:staff' %}">Meet the Staff</a>
+                    <a href="">Staff links</a>
+
+                    {% if user.is_authenticated %}
+                        {% csrf_token %}
+                        <button class="a" type="submit"><strong>Logout</strong></button>
+                    {% else %}
+                        <a class="button" href="{% url 'accounts:login' %}"><strong>Login</strong></a>
+                    {% endif %}
+                </form>
+            </div>
+        {% endblock no_topbar %}
+
         {% block extra_navbar %}
         {% endblock extra_navbar %}
     </header>
