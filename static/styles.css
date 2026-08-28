@@ -6,8 +6,8 @@
     "Helvetica Neue", sans-serif;
   --serif-font: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-  --standard-border-radius: 5px;
-  --border-width: 1px;
+  --standard-border-radius: 10px;
+  --border-width: 3px;
 
   --bg: #262238;
   --accent-bg: #191624;
@@ -20,6 +20,8 @@
   --code: #f06292;
   --preformatted: #ccc;
   --disabled: #111;
+  --border: #0d315f;
+  --marked: #ffdd33;
   
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -45,6 +47,7 @@ progress {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
+  border-color: #134e9c;
 }
 
 html {
@@ -765,7 +768,7 @@ div.notice p:last-of-type {
 }
 
 header .title {
-  /* margin-top: 37px; */
+  margin-top: 1.55rem;
   text-shadow: 0px 0px 30px var(--text);
   float: inline-start;
 }
@@ -774,11 +777,14 @@ header .logo {
   float: inline-start;
 }
 
-/* header .links {
+header .button,
+header button {
+  float: right;
+  margin-top: -0.5rem;
+}
 
-} */
-
-header .links a {
+header .links a,
+header .links button {
   margin-left: 10px;
   margin-right: 10px;
 }

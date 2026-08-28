@@ -1,17 +1,25 @@
 {% extends "base.html" %}
 
 {% block extra_navbar %}
-<br>
-<div class="links">
-<a href="">Our Mission</a>
-<a href="">Meet the heads</a>
-<a href="">Staff links</a>
-</div>
+    <br>
+    <div class="links">
+        <form method="post" action="{% url 'accounts:logout' %}">
+            <a href="">Our Mission</a>
+            <a href="">Meet the heads</a>
+            <a href="">Staff links</a>
 
-<br>
+            {% if user.is_authenticated %}
+                {% csrf_token %}
+                <button class="a" type="submit">Logout</button>
+            {% else %}
+                <a class="button" href="{% url 'accounts:login' %}"><strong>Login</strong></a>
+            {% endif %}
+        </form>
+    </div>
+
 {% endblock extra_navbar %}
 
 {% block body %}
-{% if not debug%}I'm in debug mode!{% endif%}
-    <h1>Testing!</h1>
+    {% if not debug%}I'm in debug mode!{% endif%}
+    <h1>Testing!</h1
 {% endblock body %}
