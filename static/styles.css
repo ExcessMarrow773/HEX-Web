@@ -778,13 +778,33 @@ header .logo {
 }
 
 header .button,
-header button {
+header button,
+header nav .login {
   float: right;
   margin-top: -0.5rem;
 }
 
 header .links a,
-header .links button {
+header .links button,
+header nav .login {
   margin-left: 10px;
   margin-right: 10px;
+}
+
+.card {
+  background-color: var(--accent-bg);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  border-radius: var(--standard-border-radius);
+}
+
+.card p {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.card p img {
+  max-width: 100%;  
 }
