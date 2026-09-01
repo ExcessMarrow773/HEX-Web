@@ -22,6 +22,7 @@
   --disabled: #111;
   --border: #0d315f;
   --marked: #ffdd33;
+  --border-color: #134e9c;
   
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -47,7 +48,7 @@ progress {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  border-color: #134e9c;
+  border-color: var(--border);
 }
 
 html {
