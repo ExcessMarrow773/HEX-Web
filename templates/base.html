@@ -23,7 +23,6 @@
                     <a href="">Our Mission</a>
                     <a href="{% url 'app:staff' %}">Meet the Staff</a>
                     <a href="">Staff links</a>
-
                     {% if user.is_authenticated %}
                         {% csrf_token %}
                         <button class="a" type="submit"><strong>Logout</strong></button>
