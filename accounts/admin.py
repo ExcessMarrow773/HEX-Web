@@ -14,6 +14,11 @@ class CustomUserAdmin(UserAdmin):
 		('Personal info', {
 			'fields': ('first_name', 'last_name', 'email')
 		}),
+		('Staff Page', {
+			'fields': (
+				'small_profile_pic', 'headshot', "goes_on_staff_page", "job_title", "description"
+			)
+		}),
 		('Permissions', {
 			'fields': (
 				'is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'
