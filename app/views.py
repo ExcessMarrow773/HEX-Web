@@ -28,9 +28,14 @@ User = get_user_model()
 # Create your views here.
 
 def index(request):
-    context = {}
+    context = {
+        'account': CustomUser.objects.all()
+    }
     return render(request, "app/index.html", context)
 
 def staff(request):
-    context = {}
+    context = {
+        "staff_accounts": CustomUser.objects.filter(goes_on_staff_page=True)
+    }
+
     return render(request, "app/staff.html", context)
