@@ -28,4 +28,17 @@ class CustomUserAdmin(UserAdmin):
 		})
 	)
 
+class ProfileAdmin(admin.ModelAdmin):
+	list_display = ('job_title','display_name')
+	search_fields = ['job_title', 'display_name']
+
+	fieldsets = [
+		("", {
+			'fields': (
+				'job_title', 'small_profile_pic', 'headshot', 'description',
+			)
+		})
+	]
+
+admin.site.register(Profile, ProfileAdmin)
 admin.site.register(CustomUser, CustomUserAdmin)
