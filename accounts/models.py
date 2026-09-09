@@ -15,14 +15,24 @@ class CustomUsernameValidator(UnicodeUsernameValidator):
 	)
 
 class Profile(models.Model):
-	small_profile_pic = models.ImageField(_("Profile Picture"), upload_to="profilePics", default="static/img/pfpDefault.png", blank=True)
-	headshot = models.ImageField(_("Headshot"), upload_to="headshots", blank=True)
+	small_profile_pic = models.ImageField(_("Profile Picture"), upload_to="profilePics", default="static/image/pfpDefault.png", blank=True)
+	headshot = models.ImageField(_("Headshot"), upload_to="headshots", blank=True, default="static/image/headshotDefault.png")
 
 	description = models.TextField(_("Description"), blank=True, max_length=255)
 	job_title = models.CharField(_("Job Title"), max_length=50, blank=True)
 
+
+	def account(self):
+		return self.customuser_set.first()
+	
+	def display_name(self):
+		display = f"{self.job_title} ({self.account().first_name} {self.account().last_name})"
+		return display
+
+
 	def __str__(self) -> str:
-		return
+		# display_name = f"{self.job_title} ({self.account().first_name} {self.account().last_name})"
+		return self.display_name()
 
 
 class CustomUser(AbstractUser):
