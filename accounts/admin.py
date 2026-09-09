@@ -1,12 +1,11 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import CustomUser
+from .models import CustomUser, Profile
 
 # Register your models here.
-
-class CustomUserAdmin(UserAdmin):
-	
+class CustomUserAdmin(UserAdmin):	
+	readonly_fields = ('profile', )
 	fieldsets = (
 		(None, {
 			'fields': ('username', 'password')
@@ -16,7 +15,7 @@ class CustomUserAdmin(UserAdmin):
 		}),
 		('Staff Page', {
 			'fields': (
-				'small_profile_pic', 'headshot', "goes_on_staff_page", "job_title", "description"
+				"goes_on_staff_page", "profile"
 			)
 		}),
 		('Permissions', {
