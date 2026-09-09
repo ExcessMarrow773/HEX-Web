@@ -768,6 +768,8 @@ div.notice p:last-of-type {
   }
 }
 
+/*============ HEADER ============*/
+
 header .title {
   margin-top: 1.55rem;
   text-shadow: 0px 0px 30px var(--text);
@@ -776,6 +778,12 @@ header .title {
 
 header .logo {
   float: inline-start;
+}
+
+header .pfp {
+  height:px;
+  width: 25px;
+  border-radius: 50%;
 }
 
 header .button,
@@ -792,10 +800,12 @@ header nav .login {
   margin-right: 10px;
 }
 
+/*============ STAFF CARDS ============*/
+
 .card {
   background-color: var(--accent-bg);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  /* max-width: 400px; */
   margin: auto;
   text-align: center;
   border-radius: var(--standard-border-radius);
@@ -806,6 +816,36 @@ header nav .login {
   padding-bottom: 1rem;
 }
 
-.card p img {
-  max-width: 100%;  
+
+/* ── Video grid ─────────────────────────────────────────────── */
+.staff-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+    gap: 1.5rem;
+    margin: 0;
 }
+
+.card img {
+    object-fit: cover;
+    border-radius: var(--radius);
+    transition: opacity 0.2s ease;
+}
+
+.card img:hover {
+  filter: brightness(1.1);
+}
+
+.card p {
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.card p strong {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+/* .card p .info {
+  
+} */
