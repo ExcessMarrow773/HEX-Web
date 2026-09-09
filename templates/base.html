@@ -28,6 +28,10 @@
                     {% if user.is_authenticated %}
                         {% csrf_token %}
                         <button class="a" type="submit"><strong>Logout</strong></button>
+                        <a href=""><img class="pfp" src="{{ user.profile.small_profile_pic.url }}" /></a>
+                        {% if user.is_staff %}
+                        <a class="button" href="/admin/"><strong>Admin</strong></a>
+                        {% endif %}
                     {% else %}
                         <a class="button" href="{% url 'accounts:login' %}"><strong>Login</strong></a>
                     {% endif %}
