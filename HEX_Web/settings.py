@@ -32,6 +32,10 @@ DEBUG = os.getenv("DEBUG", True) == 'True'
 
 ALLOWED_HOSTS = ['187.77.203.207', 'hex.atticusfw.dev', '127.0.0.1']
 
+CSRF_TRUSTED_ORIGINS=[]
+
+for i in ALLOWED_HOSTS:
+	CSRF_TRUSTED_ORIGINS.append("https://" + i)
 
 # Application definition
 
@@ -132,6 +136,10 @@ LOGIN_URL = '/settings/login/'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
+
+MEDIA_ROOT = os.path.join(BASE_DIR, '../media/hex')
+
+MEDIA_URL = '/media/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
