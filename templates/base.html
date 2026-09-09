@@ -11,8 +11,10 @@
     <header>
         {% block navbar %}
         <div>
+            <a href="{% url 'app:index' %}">
             <img class="logo" src="{% static "images/Hex_outline.svg" %}" width=100>
-            <h1 class="title">HEX</h1>
+            <h1 class="title" style="color: var(--text)">HEX</h1>
+            </a>
         </div>
         {% endblock navbar %}
 
