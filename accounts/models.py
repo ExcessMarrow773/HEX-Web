@@ -44,7 +44,7 @@ class CustomUser(AbstractUser):
 	
 	goes_on_staff_page = models.BooleanField(_("Goes on staff page?"), default=False)
 
-	profile = models.ForeignKey(Profile, on_delete=models.RESTRICT)
+	profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
 
 	username = models.CharField(
 		max_length=32,
