@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'app.apps.AppConfig',
     'accounts.apps.AccountsConfig',
+    'posts.apps.PostsConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -70,7 +71,7 @@ ROOT_URLCONF = 'HEX_Web.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['app/templates/app', 'templates'],
+        'DIRS': ['app/templates/app', 'posts/templates/posts', 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

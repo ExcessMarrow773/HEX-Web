@@ -25,7 +25,11 @@ app_name = 'base'
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('app.urls')),
+
+    path('posts/', include('posts.urls')),
+
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', CustomLogoutView.as_view(), name='logout'),
+    
     path('settings/', include('accounts.urls'))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
