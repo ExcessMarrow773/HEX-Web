@@ -31,8 +31,8 @@ class Profile(models.Model):
 
 
 	def __str__(self) -> str:
-		# display_name = f"{self.job_title} ({self.account().first_name} {self.account().last_name})"
-		return self.display_name()
+		display = f"{self.job_title} ({self.account().first_name} {self.account().last_name})"
+		return display
 
 
 class CustomUser(AbstractUser):

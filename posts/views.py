@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
@@ -30,3 +30,14 @@ def makePost(request):
         'form': form
     }
     return render(request, 'posts/makePost.html', context)
+
+def viewPost(request, pk):
+    post = get_object_or_404(Post, pk=pk)
+    postAuthor = get_object_or_404(User, pk=post.author.pk)
+    postAuthorProfile = postAuthor.profile
+    context = {
+        "post": post,
+        "postAuthor": postAuthor,
+        "postAuthorProfile": postAuthorProfile
+    }
+    return render(request, 'posts/viewPost.html', context)

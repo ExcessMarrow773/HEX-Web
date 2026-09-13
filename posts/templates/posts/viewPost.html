@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<a href="" class="button">
+<img class="pfp" src="{{ postAuthor.profile.small_profile_pic.url }}" />
+    <strong>{{ postAuthor.profile }}</strong>
+</a>
+
+<div class="post-body">
+    {{ post.body }}
+</div>
+{% endblock body %}

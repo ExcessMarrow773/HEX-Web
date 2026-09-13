@@ -192,6 +192,9 @@ input[type="button"] {
   padding: 0.5em;
   text-decoration: none;
   line-height: normal;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
 }
 
 .button[aria-disabled="true"], 
@@ -781,9 +784,7 @@ header .logo {
 }
 
 header .pfp {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
+  float: right;
 }
 
 header .button,
@@ -819,16 +820,16 @@ header nav .login {
 
 /* ── Video grid ─────────────────────────────────────────────── */
 .staff-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
-    gap: 1.5rem;
-    margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
+  gap: 1.5rem;
+  margin: 0;
 }
 
 .card img {
-    object-fit: cover;
-    border-radius: var(--radius);
-    transition: opacity 0.2s ease;
+  object-fit: cover;
+  border-radius: var(--radius);
+  transition: opacity 0.2s ease;
 }
 
 .card img:hover {
@@ -836,16 +837,29 @@ header nav .login {
 }
 
 .card p {
-    margin: 0;
-    padding: 0.5rem 0;
+  margin: 0;
+  padding: 0.5rem 0;
 }
 
 .card p strong {
-    display: block;
-    font-size: 1rem;
-    margin-bottom: 0.25rem;
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
 }
 
-/* .card p .info {
-  
-} */
+.pfp {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.post-body {
+  background-color: var(--accent-bg);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  /* margin: auto;
+  text-align: center; */
+  border-radius: var(--standard-border-radius);
+  /* padding-left: 1rem;
+  padding-right: 1rem; */
+  padding: 1rem;
+}

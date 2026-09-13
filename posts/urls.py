@@ -4,5 +4,6 @@ from posts import views
 app_name = 'posts'
 
 urlpatterns = [
-    path('create/', views.makePost, name="createPost")
+    path('create/', views.makePost, name="createPost"),
+    path('<int:pk>/', views.viewPost, name="viewPost")
 ]
