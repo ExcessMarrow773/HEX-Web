@@ -5,7 +5,7 @@ from posts.models import Post
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ('title', 'author', 'created_on')
+    list_display = ('title', 'author', 'active', 'created_on')
     list_filter = ('created_on', )
     date_hierarchy = 'created_on'
     search_fields = ('title', 'author')

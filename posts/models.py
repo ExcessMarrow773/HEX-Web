@@ -7,6 +7,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
+    active = models.BooleanField(default=True)
 
     def __str__(self) -> str:
         return f'{self.author.account().name()}: {self.title}'
