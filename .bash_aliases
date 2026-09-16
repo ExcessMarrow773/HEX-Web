@@ -1,0 +1,5 @@
+alias collectstatic=".venv/bin/python manage.py collectstatic --no-input"
+alias check=".venv/bin/python manage.py check"
+alias logs="tmux attach -t 'hexServer'"
+alias migrationstack=".venv/bin/python manage.py makemigrations; .venv/bin/python manage.py migrate"
+alias commit="git add -p; git commit"
