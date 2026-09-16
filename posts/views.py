@@ -22,7 +22,7 @@ def makePost(request):
                 body=form.cleaned_data["body"]
             )
             post.save()
-            return redirect('posts:viewPost', post.pk)
+            return redirect('posts:post_details', post.pk)
     else:
         form = CreatePost()
     
@@ -40,7 +40,7 @@ def viewPostIndex(request):
     
     return render(request, 'posts/viewPostIndex.html', context)
 
-def viewPost(request, pk):
+def post_details(request, pk):
     post = get_object_or_404(Post, pk=pk)
     postAuthor = get_object_or_404(User, pk=post.author.pk)
     postAuthorProfile = postAuthor.profile
@@ -49,4 +49,4 @@ def viewPost(request, pk):
         "postAuthor": postAuthor,
         "postAuthorProfile": postAuthorProfile
     }
-    return render(request, 'posts/viewPost.html', context)
+    return render(request, 'posts/post_details.html', context)

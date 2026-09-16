@@ -3,18 +3,20 @@
 
 {% block body %}
 
-    <div class="staff-card-grid">
-		{% for post in posts %}
-			<div class="card">
-				<div class="post-card-label"><a href="">{{ post.author }}</a></div>
-						
-				<a href="{% url 'posts:viewPost' post.pk %}">
-					<strong>{{ thing.title }}</strong>
-				</a>
-				<p>{{ post.body | markdown_truncate:100 }}</p>
-				<small>{{ post.created_on }}</small>
-				</div>
-		{% endfor %}
-	</div>
+<div class="staff-card-grid">
+	{% for post in posts %}
+	  <div class="card">
+		<a href="{% url "posts:post_details" post.pk %}">
+		  <div class="post-card-label"><a href="">{{ post.author }}</a></div>
+
+		  <a href="{% url 'posts:post_details' post.pk %}">
+			<strong>{{ thing.title }}</strong>
+		  </a>
+		  <p>{{ post.body | markdown_truncate:100 }}</p>
+		  <small>{{ post.created_on }}</small>
+		</a>
+	  </div>
+	{% endfor %}
+</div>
 
 {% endblock body %}

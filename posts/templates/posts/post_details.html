@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load markdown_extras %}
 {% block body %}
 <a href="" class="button">
 <img class="pfp" src="{{ postAuthor.profile.small_profile_pic.url }}" />
@@ -7,6 +7,6 @@
 </a>
 
 <div class="post-body">
-    {{ post.body }}
+    {{ post.body | markdown }}
 </div>
 {% endblock body %}
