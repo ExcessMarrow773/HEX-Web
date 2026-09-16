@@ -31,6 +31,15 @@ def makePost(request):
     }
     return render(request, 'posts/makePost.html', context)
 
+def viewPostIndex(request):
+    posts = Post.objects.all().filter(active=True)
+
+    context = {
+        "posts": posts
+    }
+    
+    return render(request, 'posts/viewPostIndex.html', context)
+
 def viewPost(request, pk):
     post = get_object_or_404(Post, pk=pk)
     postAuthor = get_object_or_404(User, pk=post.author.pk)
