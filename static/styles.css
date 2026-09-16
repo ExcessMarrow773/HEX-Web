@@ -785,6 +785,8 @@ header .logo {
 
 header .pfp {
   float: right;
+  position: relative;
+  top: -0.5rem;
 }
 
 header .button,
@@ -810,6 +812,7 @@ header nav .login {
   margin: auto;
   text-align: center;
   border-radius: var(--standard-border-radius);
+  padding: 0.7rem;
 }
 
 .card p {
@@ -824,6 +827,7 @@ header nav .login {
   grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
   gap: 1.5rem;
   margin: 0;
+
 }
 
 .card img {
