@@ -6,23 +6,23 @@ from django.contrib.auth.decorators import login_required
 from posts.forms import CreatePost
 from posts.models import Post
 
-from accounts.models import CustomUser
+from accounts.models import CustomUser, Profile
 
 User = get_user_model()
 # Create your views here.
 
-# @login_required
+@login_required
 def makePost(request):
     if request.method == "POST":
         form = CreatePost(request.POST)
         if form.is_valid():
             post = Post(
-                author=get_object_or_404(User, pk=request.user.pk),
+                author=get_object_or_404(User, pk=request.user.pk).profile,
                 title=form.cleaned_data["title"],
                 body=form.cleaned_data["body"]
             )
             post.save()
-            return redirect('app:index')
+            return redirect('posts:viewPost', post.pk)
     else:
         form = CreatePost()
     
