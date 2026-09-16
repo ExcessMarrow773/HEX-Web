@@ -10,8 +10,6 @@ from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.clickjacking import xframe_options_exempt
 from django.db.models import Q
 
-from app.models import Post
-
 from itertools import chain
 from operator import attrgetter
 from datetime import timedelta
