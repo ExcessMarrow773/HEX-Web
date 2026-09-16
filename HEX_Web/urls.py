@@ -20,6 +20,13 @@ from accounts.views import CustomLoginView, CustomLogoutView
 from django.conf import settings
 from django.conf.urls.static import static
 
+from django.contrib.sitemaps.views import sitemap
+from posts.sitemaps import PostSitemap
+
+sitemaps = {
+    'posts': PostSitemap,
+}
+
 app_name = 'base'
 
 urlpatterns = [
@@ -31,5 +38,8 @@ urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', CustomLogoutView.as_view(), name='logout'),
     
-    path('settings/', include('accounts.urls'))
+    path('settings/', include('accounts.urls')),
+
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
