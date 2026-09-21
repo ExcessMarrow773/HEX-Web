@@ -25,12 +25,16 @@
                     <a href="">Our Mission</a>
                     <a href="{% url 'app:staff' %}">Meet the Staff</a>
                     <a href="">Staff links</a>
+                    
                     {% if user.is_authenticated %}
+                        <a href="{% url 'posts:postIndex' %}">Dev Blogs</a>
+                    
                         {% csrf_token %}
                         <button class="a" type="submit"><strong>Logout</strong></button>
                         {% if user.is_staff %}
                         <a class="button" href="/admin/"><strong>Admin</strong></a>
-                        {% endif %}
+                    {% endif %}
+
                     <a href="" ><img class="pfp" src="{{ user.profile.small_profile_pic.url }}" /></a>
                     {% else %}
                         <a class="button" href="{% url 'accounts:login' %}"><strong>Login</strong></a>
