@@ -10,6 +10,7 @@ urlpatterns = [
     path('login/', views.CustomLoginView.as_view(), name='login'),
     path('logout/', views.CustomLogoutView.as_view(), name='logout'),
     path('signup/', views.register, name='register'),
+    # path('profile/<int:pk>', views.profile, name='profile'),
     path('changeUsername/', views.settings, name='changeUsername'),
     path('changePassword/', views.settings, name='changePassword'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

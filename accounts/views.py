@@ -6,8 +6,9 @@ from django.contrib.auth import get_user_model, login
 from django.shortcuts import redirect
 from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
-from .forms import ProfilePasswordChange, ProfileUsernameChange, CustomAuthenticationForm, CustomUserCreationForm
 
+from accounts.forms import ProfilePasswordChange, ProfileUsernameChange, CustomAuthenticationForm, CustomUserCreationForm
+from accounts.models import Profile
 
 from itertools import chain
 from operator import attrgetter
@@ -53,6 +54,16 @@ def register(request):
 	else:
 		form = CustomUserCreationForm()
 	return render(request, 'register.html', {'form':form})
+
+def profile(request, pk):
+	user_account = get_object_or_404(User, pk=pk)
+	user_profile = user_account.profile
+
+	context = {
+		'profile': user_profile,
+		'account': user_account.name
+	}
+	return render(request, 'accounts/profile.html', context)
 
 class CustomLoginView(LoginView):
 	template_name = 'login.html'
