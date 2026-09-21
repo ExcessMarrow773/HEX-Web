@@ -867,3 +867,9 @@ header nav .login {
   padding-right: 1rem; */
   padding: 1rem;
 }
+
+.post-title h2 {
+  display: inline;
+  padding-left: 0.5rem;
+  align-items: center;
+}
