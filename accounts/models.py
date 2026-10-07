@@ -1,11 +1,20 @@
 from django.db import models
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, AnonymousUser
 
 from django.contrib.auth.validators import UnicodeUsernameValidator
 from django.core import validators
 from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
+
+security_levels = [
+	("0", "Guest"),
+	("1", "Newbie"),
+	("2", "Developer"),
+	("3", "Product Manager"),
+	("4", "CEO")
+]
+
 
 class CustomUsernameValidator(UnicodeUsernameValidator):
 	regex = r'^[\w+-]+$'  # Modify this regex to allow/disallow characters
@@ -22,16 +31,24 @@ class Profile(models.Model):
 	job_title = models.CharField(_("Job Title"), max_length=50, blank=True)
 
 
+	security_access = models.TextField(
+			_("Security Access"),
+			choices=security_levels,
+			default=0
+		)
+
 	def account(self):
 		return self.customuser_set.first()
 	
 	def display_name(self):
-		display = f"{self.job_title} ({self.account().first_name} {self.account().last_name})"
+		display = f"{self.account().first_name} {self.account().last_name} {"(" if self.job_title else "" }{self.job_title}{")" if self.job_title else "" }"
 		return display
 
+	def security_level(self):
+		return self.get_security_access_display()
 
 	def __str__(self) -> str:
-		display = f"{self.job_title} ({self.account().first_name} {self.account().last_name})"
+		display = f"{self.account().first_name} {self.account().last_name} ({self.job_title})"
 		return display
 
 
@@ -64,3 +81,12 @@ class CustomUser(AbstractUser):
 	def __int__(self):
 		return self.id
 
+class CustomAnonymousUser(AnonymousUser):
+	def __init__(self):
+		super().__init__()	
+
+		self.security_access = models.TextField(
+			_("Security Access"),
+			choices=security_levels,
+			default=0
+		)

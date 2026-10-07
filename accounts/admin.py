@@ -29,13 +29,17 @@ class CustomUserAdmin(UserAdmin):
 	)
 
 class ProfileAdmin(admin.ModelAdmin):
-	list_display = ('job_title','display_name')
+	list_display = ('display_name', 'job_title',)
 	search_fields = ['job_title', 'display_name']
 
 	fieldsets = [
 		("", {
 			'fields': (
-				'job_title', 'small_profile_pic', 'headshot', 'description',
+				'job_title',
+				'small_profile_pic',
+				'headshot',
+				'description',
+				'security_access'
 			)
 		})
 	]
