@@ -8,7 +8,9 @@ from django.views.decorators.http import require_POST
 from django.views.decorators.csrf import csrf_exempt
 
 from accounts.forms import ProfilePasswordChange, ProfileUsernameChange, CustomAuthenticationForm, CustomUserCreationForm
+
 from accounts.models import Profile
+from posts.models import Post
 
 from itertools import chain
 from operator import attrgetter
@@ -58,10 +60,12 @@ def register(request):
 def profile(request, pk):
 	user_account = get_object_or_404(User, pk=pk)
 	user_profile = user_account.profile
+	user_posts = Post.objects.all().filter(author=user_profile)
 
 	context = {
 		'profile': user_profile,
-		'account': user_account.name
+		'account': user_account.name,
+		'account_posts': user_posts
 	}
 	return render(request, 'accounts/profile.html', context)
 

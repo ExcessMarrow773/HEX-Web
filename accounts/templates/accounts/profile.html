@@ -1,8 +1,31 @@
 {% extends 'base.html' %}
+{% load markdown_truncate markdown_extras %}
+
 
 {% block body %}
+<div class="profile-body">
+    <h1>
+        {{ profile.display_name }}
+    </h1>
+    <img src="{{ profile.headshot.url }}" width="400px" height="auto"/><br>
 
-{{ user_profile }}
-{{ user_account.name }}
+    <div>
+        <!-- {{ account_posts }} -->
+        <div class="staff-card-grid">
+        {% for post in account_posts %}
+            <div class="card">
+                <a href="{% url "posts:post_details" post.pk %}">
+                <div class="post-card-label"><a href="{% url "posts:post_details" post.pk %}">{{ post.author }}</a></div>
 
+                <a href="{% url 'posts:post_details' post.pk %}">
+                    <strong>{{ thing.title }}</strong>
+                </a>
+                <p>{{ post.body | markdown_truncate:85 }}</p>
+                <small>{{ post.created_on }}</small>
+                </a>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+</div>
 {% endblock body %}

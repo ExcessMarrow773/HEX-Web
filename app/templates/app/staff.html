@@ -4,13 +4,6 @@
 
 {% block body %}
 <div class="staff-card-grid">
-<section class="card">
-	<p>
-		<img class="logo" src="{% static "images/image.png" %}" width="500" height="500">
-		Brajkovich Eiserman Kriener<br>
-		<strong>CEO</strong>
-	</p>
-</section>
 
 {% for account in staff_accounts %}
 <section class="card">
@@ -21,13 +14,6 @@
 	</p>
 </section>
 {% endfor %}
-
-<section class="card">
-	<p>
-		<img class="logo" src="{% static "images/image.png" %}" >
-		Test Mc Testman
-		<strong>Potato Man</strong>
-	</p>
-</section>
+<section></section>
 </div>
 {% endblock body %}

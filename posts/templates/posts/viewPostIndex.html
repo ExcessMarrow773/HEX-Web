@@ -12,7 +12,7 @@
 		  <a href="{% url 'posts:post_details' post.pk %}">
 			<strong>{{ thing.title }}</strong>
 		  </a>
-		  <p>{{ post.body | markdown_truncate:100 }}</p>
+		  <p>{{ post.body | markdown_truncate:85 }}</p>
 		  <small>{{ post.created_on }}</small>
 		</a>
 	  </div>
