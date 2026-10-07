@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+  {% load static %}
+  <script src="{% static 'scripts/carousel.js' %}"></script>
+{% endblock extra_head %}
+
+{% block body %}
+
+<div class="carousel">
+  <h1>CSS carousel single item per page</h1>
+
+  <ul aria-label="Carousel" tabindex="0">
+    <li data-accName="Item 1"><h2>Page 1</h2></li>
+    <li data-accName="Item 2"><h2>Page 2</h2></li>
+    <li data-accName="Item 3"><h2>Page 3</h2></li>
+    <li data-accName="Item 4"><h2>Page 4</h2></li>
+  </ul>
+</div>
+
+
+{% endblock body %}

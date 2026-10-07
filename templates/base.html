@@ -22,7 +22,7 @@
             <br>
             <div class="links">
                 <form method="post" action="{% url 'accounts:logout' %}">
-                    <a href="">Our Mission</a>
+                    <a href="{% url "app:mission" %}">Our Mission</a>
                     <a href="{% url 'app:staff' %}">Meet the Staff</a>
                     <a href="">Staff links</a>
                     
@@ -35,7 +35,7 @@
                         <a class="button" href="/admin/"><strong>Admin</strong></a>
                     {% endif %}
 
-                    <a href="" ><img class="pfp" src="{{ user.profile.small_profile_pic.url }}" /></a>
+                    <a href="{% url 'app:profile' user.pk %}" ><img class="pfp" src="{{ user.profile.small_profile_pic.url }}" /></a>
                     {% else %}
                         <a class="button" href="{% url 'accounts:login' %}"><strong>Login</strong></a>
                     {% endif %}

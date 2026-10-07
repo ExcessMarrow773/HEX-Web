@@ -20,6 +20,7 @@ import os
 import json
 
 User = get_user_model()
+
 # Create your views here.
 
 
@@ -37,3 +38,28 @@ def staff(request):
     }
 
     return render(request, "app/staff.html", context)
+
+def mission(request):
+    if str(request.user) == "AnonymousUser":
+        context = {
+            "security_level": 0,
+            "security_access": "Guest"
+        }
+        return render(request, "app/guest_mission.html", context)
+        
+    else:
+        account = User.objects.get(pk=request.user.pk)
+        profile = account.profile
+        security_level = profile.security_level()
+        security_access = int(profile.security_access)
+        context = {
+            "account": account,
+            "profile": profile,
+            "security_level": security_level,
+            "security_access": security_access
+        }
+        
+        if security_access >= 2:
+            return render(request, "app/mission.html", context)
+        else:
+            return render(request, "app/guest_mission.html", context)

@@ -1,1 +1,15 @@
 {% extends "base.html" %}
+
+{% block body %}
+{{ account }}<br>
+
+{{ security_level }}
+{{ security_access }}
+
+{% if security_access >= 1 %}
+{{ profile.security_access }}
+{% else %}
+<p> You are a guest</p>
+{% endif %}
+
+{% endblock body %}
