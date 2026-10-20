@@ -875,6 +875,7 @@ header nav .login {
   align-items: center;
 }
 
+
 .carousel {
   --border-width: 2px;
   position: relative;
@@ -888,6 +889,8 @@ header nav .login {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;            /* Firefox */
+  border: var(--border-width), solid, var(--border);
+  border-radius: var(--standard-border-radius);
 }
 .carousel ul::-webkit-scrollbar {   /* Chrome, Safari */
   display: none;
