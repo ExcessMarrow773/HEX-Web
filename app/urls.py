@@ -9,5 +9,6 @@ urlpatterns = [
     path("", views.index, name="index"),
     path("staff/", views.staff, name="staff"),
     path("profile/<int:pk>", account_profile, name="profile"),
-	path("mission/", views.mission, name="mission")
+	path("mission/", views.mission, name="mission"),
+    path("staff/links/", views.staff_links, name="staff-links")
 ]

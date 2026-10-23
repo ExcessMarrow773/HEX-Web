@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    {% for link in links %}
+        <a class="button" href="{{ link.url }}">{{ link.name }} <br><small>{{ link.created_on }}</small></a>
+    {% endfor %}
+{% endblock body %}

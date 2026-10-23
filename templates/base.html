@@ -5,6 +5,8 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
     {% block extra_head %}{% endblock extra_head %}
     <title>{% block title %}HEX{% endblock title %}</title>
+
+    
 </head>
 
 <body>
@@ -24,9 +26,9 @@
                 <form method="post" action="{% url 'accounts:logout' %}">
                     <a href="{% url "app:mission" %}">Our Mission</a>
                     <a href="{% url 'app:staff' %}">Meet the Staff</a>
-                    <a href="">Staff links</a>
                     
                     {% if user.is_authenticated %}
+                        <a href="{% url 'app:staff-links' %}">Staff links</a>
                         <a href="{% url 'posts:postIndex' %}">Dev Blogs</a>
                     
                         {% csrf_token %}

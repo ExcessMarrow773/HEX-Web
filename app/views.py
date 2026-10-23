@@ -15,6 +15,7 @@ from operator import attrgetter
 from datetime import timedelta
 
 from accounts.models import CustomUser
+from app.models import Link
 
 import os
 import json
@@ -38,6 +39,15 @@ def staff(request):
     }
 
     return render(request, "app/staff.html", context)
+
+def staff_links(request):
+    links = Link.objects.all()
+    
+    context = {
+        'links': links
+    }
+
+    return render(request, "app/staff_links.html", context)
 
 def mission(request):
     if str(request.user) == "AnonymousUser":
