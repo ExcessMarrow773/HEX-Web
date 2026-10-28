@@ -9,8 +9,8 @@
 <section class="card">
 	<p>
 		<img class="logo" src="{{ account.profile.headshot.url }}" width="500" height="500">
-		{{account.first_name}} {{account.last_name}}
-		<strong>{{account.profile.job_title}}</strong>
+		{{account.first_name.capitalize}} {{account.last_name.capitalize}}
+		<strong>{{account.profile.job_title.capitalize}}</strong>
 	</p>
 </section>
 {% endfor %}
