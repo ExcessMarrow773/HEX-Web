@@ -33,6 +33,9 @@ def index(request):
     }
     return render(request, "app/index.html", context)
 
+def demo(request):
+    return render(request, "app/demo.html")
+
 def staff(request):
     context = {
         "staff_accounts": CustomUser.objects.filter(goes_on_staff_page=True)
