@@ -9,29 +9,50 @@
   --standard-border-radius: 10px;
   --border-width: 3px;
 
-  --bg: #262238;
-  --accent-bg: #191624;
-  --text: #dcdcdc;
-  --text-light: #ababab;
-  --navbar-bg: var(--bg);
-  --accent: #ffb300;
-  --accent-hover: #ffe099;
-  --accent-text: var(--bg);
-  --code: #f06292;
-  --preformatted: #ccc;
-  --disabled: #111;
-  --border: #0d315f;
-  --marked: #ffdd33;
-  --border-color: #134e9c;
+  /* Default (light) theme */
+    /* --bg: #F5E4C8; */
+    --bg: #fff;
+    --accent-bg: #7eacb5;
+    --text: #1b242a;
+    --text-light: #ababab;
+    /* --text-link: #ffb3000; */
+    --navbar-bg: var(--bg);
+    --accent: #262238;
+    --accent-hover: oklch(from var(--accent) calc(l - 0.05) c h);;
+    --accent-text: var(--bg);
+    --code: #f06292;
+    --preformatted: #ccc;
+    --disabled: #111;
+    /* --border: #ffb300; */
+    --border: #0d315f;
+    --marked: #ffdd33;
+    --border-color: #134e9c;
   
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
   --mono: ui-monospace, Consolas, monospace;
-  
-  /* Add a bit of transparency so light media isn't so glaring in dark mode */
-  img,
-  video {
-    opacity: 0.8;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #262238;
+    --accent-bg: #191624;
+    --text: #dcdcdc;
+    --text-light: #ababab;
+    --navbar-bg: var(--bg);
+    --accent: #ffb300;
+    --accent-hover: #ffe099;
+    --accent-text: var(--bg);
+    --code: #f06292;
+    --preformatted: #ccc;
+    --disabled: #111;
+    --border: #0d315f;
+    --marked: #ffdd33;
+    --border-color: #134e9c;
+    /* Add a bit of transparency so light media isn't so glaring in dark mode */
+    img,
+    video {
+      opacity: 0.8;
+    }
   }
 }
 
@@ -775,7 +796,9 @@ div.notice p:last-of-type {
 
 header .title {
   margin-top: 1.55rem;
-  text-shadow: 0px 0px 30px var(--text);
+  @media (prefers-color-scheme: dark) {
+    text-shadow: 0px 0px 30px var(--text);
+  }
   float: inline-start;
 }
 
@@ -827,7 +850,7 @@ header nav .login {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 2fr));
   gap: 1.5rem;
-  margin: 0;
+  margin-top: 0.5rem;
 
 }
 
