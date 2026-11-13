@@ -25,6 +25,7 @@ app_name = 'base'
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('', include('app.urls')),
+    path('encryption/', include('encryption.urls')),
 
     path('posts/', include('posts.urls')),
 

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'channels',
 
     'app.apps.AppConfig',
+    'encryption.apps.EncryptionConfig',
     'accounts.apps.AccountsConfig',
     'posts.apps.PostsConfig',
 
