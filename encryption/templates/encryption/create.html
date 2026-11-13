@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block page_title %}Create Puzzle{% endblock page_title %}
+
+{% load static %}
+{% block body %}
+<h1>Create Puzzle</h1>
+
+	<form method="post" enctype="multipart/form-data" id="upload-form">
+		{% csrf_token %}
+		{{ form.as_p }}
+	</form>
+{% endblock body %}
