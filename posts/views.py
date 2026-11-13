@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from posts.forms import CreatePost
 from posts.models import Post
 
-from accounts.models import CustomUser, Profile
+from accounts.models import Profile
 
 User = get_user_model()
 # Create your views here.
@@ -49,4 +49,5 @@ def post_details(request, pk):
         "postAuthor": postAuthor,
         "postAuthorProfile": postAuthorProfile
     }
+    
     return render(request, 'posts/post_details.html', context)
