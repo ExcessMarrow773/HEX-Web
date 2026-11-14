@@ -1,24 +1,27 @@
 import string
 
-def key_ring(key):
-	abcs = [i for i in string.ascii_lowercase]
-	
-	for i in range(len(abcs)):
-		if abcs[i] == key:
-			key = i
-			break
-	abcs = abcs[i:]+abcs[:i]
+abcs = [i for i in string.ascii_lowercase]
 
-	output = abcs
+def key_ring(key_index, letter):
+	letter_index = abcs.index(letter)
+	
+	outer_abcs = abcs[key_index:]+abcs[:key_index]
+
+	output = outer_abcs[letter_index]
 	return output
 
 def main(text_input: str):
 	input = text_input.lower().strip()
+	input = [i for i in input]
+	outputv1 = []
+	keys = ["g", "d", "b"]
 
-	print(key_ring("g"))
+	for i in range(len(input)):
+		outputv1.append(key_ring(abcs.index(keys[0])+i, input[i]))
+		
 
-	output = input
-	return output
+	print(input)
+	return outputv1
 
 if __name__ == "__main__":
 	things = main("test")
